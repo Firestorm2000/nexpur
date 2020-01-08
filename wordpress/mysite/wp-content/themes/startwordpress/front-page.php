@@ -2,11 +2,11 @@
 	<div class="row">
 		<div class="col-sm-8 blog-main">
 
-			<ul> <?php query_posts('orderby=comment_count&posts_per_page=>4'); 
+			<ul> <?php query_posts('orderby=comment_count'); 
                         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?> 
                             <li><a href="<?php the_permalink() ?>" rel="bookmark" 
                                    title="<?php the_title_attribute(); ?>">
-                                       <?php the_title(); ?> (<?php comments_number('%'); ?>)</a>
+                                       <?php the_title(); ?> (<?php comments_number('0'); ?>)</a>
                             </li> <?php endwhile; ?> <?php else : ?>
                             <li>Sorry, no posts were found.
                             </li>
