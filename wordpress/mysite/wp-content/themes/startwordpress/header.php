@@ -23,8 +23,19 @@
   <div class="blog-masthead">
 	<div class="container">
 		<nav class="blog-nav">
-			<a class="blog-nav-item active" href="#">Home</a>
-			<?php wp_list_pages( '&title_li=' );?>
+			<?php if ( has_nav_menu( 'primary' ) ) : ?>
+                        <nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'twentynineteen' ); ?>">
+                                <?php
+                                wp_nav_menu(
+                                        array(
+                                                'theme_location' => 'primary',
+                                                'menu_class'     => 'main-menu',
+                                                'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                        )
+                                );
+                                ?>
+                        </nav><!-- #site-navigation -->
+                        <?php endif; ?>
 		</nav>
 	</div>
 </div>

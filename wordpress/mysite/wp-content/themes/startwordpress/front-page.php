@@ -2,26 +2,23 @@
 	<div class="row">
 		<div class="col-sm-8 blog-main">
 
-				<ul> <?php query_posts('orderby=comment_count'); 
+			<ul> <?php query_posts('orderby=comment_count&posts_per_page=>4'); 
                         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?> 
                             <li><a href="<?php the_permalink() ?>" rel="bookmark" 
                                    title="<?php the_title_attribute(); ?>">
                                        <?php the_title(); ?> (<?php comments_number('%'); ?>)</a>
+                            </li> <?php endwhile; ?> <?php else : ?>
+                            <li>Sorry, no posts were found.
                             </li>
-							  <nav>
+                        </ul>
+                        <nav>
                             <ul class="pager">
                                     <li><?php next_posts_link( 'Previous' ); ?></li>
                                     <li><?php previous_posts_link( 'Next' ); ?></li>
                             </ul>
                         </nav>
-							 <?php endwhile; ?> <?php else : ?>
-                            <li>Sorry, no posts were found.
-                            </li>
-                        </ul>
-                      
                         
-                        <?php endif;
-			?>
+                       <?php endif; ?> 
 
 		</div> <!-- /.blog-main -->
 
