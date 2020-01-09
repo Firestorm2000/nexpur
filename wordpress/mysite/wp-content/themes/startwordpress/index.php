@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header(); echo "index page"; ?>
 	<div class="row">
 		<div class="col-sm-8 blog-main">
 
